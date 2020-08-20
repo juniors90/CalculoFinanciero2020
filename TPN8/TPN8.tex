@@ -1,0 +1,482 @@
+\documentclass[12pt]{examdesign}
+\usepackage[spanish]{babel}
+\OneKey
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{pifont}
+%-----------------------------------------------------------------------------------------------
+%\usepackage{gfsartemisia-euler}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage[all]{xy}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{verbatim}
+\usepackage[colorlinks=true,
+breaklinks=true,
+linkcolor=blue,
+urlcolor=red,
+bookmarksopen=true]{hyperref}
+\usepackage[pdftex,dvipsnames]{xcolor}
+\definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
+\definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
+\definecolor{tealgreen}{rgb}{0.0, 0.51, 0.5}
+\definecolor{upforestgreen}{rgb}{0.0, 0.27, 0.13}
+\definecolor{napiergreen}{rgb}{0.16, 0.5, 0.0}
+\definecolor{capri}{rgb}{0.0, 0.75, 1.0}
+\definecolor{calpolypomonagreen}{rgb}{0.12, 0.3, 0.17}
+\definecolor{azure(colorwheel)}{rgb}{0.0, 0.5, 1.0}
+\definecolor{dukeblue}{rgb}{0.0, 0.0, 0.61}
+\definecolor{bole}{rgb}{0.47, 0.27, 0.23}
+\definecolor{gris}{gray}{0.975}
+%----------------------------------------------------------------------------------------------
+% Si desea utilizar \@@line para definir su propio encabezado de examen o palabras del encabezado, 
+% asegúrese de usar \makeatletter y \makeatother en los lugares apropiados, de lo contrario 
+% podría obtener errores.
+%-----------------------------------------------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{thm}[theorem]{Teorema}
+\newtheorem{cor}[theorem]{Corolario}
+\newtheorem{lem}[theorem]{Lema}
+\newtheorem{pro}[theorem]{Proposición}
+\newtheorem{axs}[theorem]{Axiomas}
+\newtheorem{axi}[theorem]{Axioma}
+\theoremstyle{definition}
+\newtheorem{exas}[theorem]{Ejemplos}
+\newtheorem{exa}[theorem]{Ejemplo}
+\newtheorem{defi}[theorem]{Definición}
+\theoremstyle{remark}
+\newtheorem{rmk}[theorem]{Observación}
+\newtheorem{step}{Step}
+\newtheorem{xca}[theorem]{Ejercicio}
+\newtheorem{prob}[theorem]{Pregunta}
+\newtheorem{rmks}[theorem]{Observaciones}
+\newtheorem*{proofmt}{Prueba del Teorema Principal}
+\usepackage[centerlast,small,sc]{caption}
+\setlength{\captionmargin}{20pt}
+\newcommand{\axref}[1]{Axioma~\ref{#1}}
+\newcommand{\defref}[1]{\textbf{Definición}~\ref{#1}}
+\newcommand{\coref}[1]{\textbf{Corolario}~\ref{#1}}
+\newcommand{\thref}[1]{\textbf{Teorema}~\ref{#1}}
+\newcommand{\lref}[1]{\textbf{Lema}~\ref{#1}}
+\newcommand{\exaref}[1]{Ejemplo~\ref{#1}}
+\newcommand{\xcaref}[1]{Ejercicio~\ref{#1}}
+\newcommand{\rmkref}[1]{Observación~\ref{#1}}
+\newcommand{\pref}[1]{\textbf{Proposición}~\ref{#1}}
+\newcommand{\fref}[1]{Figura~\ref{#1}}
+\newcommand{\tref}[1]{Tabla~\ref{#1}}
+\newcommand{\cref}[1]{\textbf{Capítulo}~\ref{#1}}
+\newcommand{\sref}[1]{\textbf{Sección}~\ref{#1}}
+\newcommand{\aref}[1]{Apéndice~\ref{#1}}
+\newcommand{\eref}[1]{Ecuación~\eqref{#1}}
+\newcommand{\dref}[1]{Diagrama~\eqref{#1}}
+\usepackage{makeidx}
+\usepackage{tikz,tkz-tab}%
+\usetikzlibrary{matrix,arrows,positioning,shadows,shadings,backgrounds,
+	calc, shapes, tikzmark}
+\usepackage{tcolorbox, empheq}%
+\tcbuselibrary{skins,breakable,listings,theorems}
+
+\tcbset{opteqC/.style={skin=beamer,colback=red!1!white}}
+
+\makeatletter
+\begin{examtop}
+	\@@line{\parbox{3in}{\classdata \\[0.5cm]
+			\textcolor{upforestgreen}{\textbf{\underline{T.P.N$^\circ$}}~\fbox{\textsc{8}}} \examtype}
+		%                  ^^^^^^
+		\hfill
+		\parbox{3in}{\normalsize \namedata}}
+	\bigskip
+\end{examtop}
+
+\def\namedata{\textcolor{upforestgreen}{\textbf{Estudiante}}:\hrulefill \\[\namedata@vspace]
+	          \textcolor{upforestgreen}{\textbf{Curso y División}}: 6to año, I-III-IV \\[\namedata@vspace]
+	          \textcolor{upforestgreen}{\textbf{Profesor}}: Ferreira, Juan David \\[\namedata@vspace]
+	          \textcolor{upforestgreen}{\textbf{Fecha de Entrega}}:\hrulefill 
+          }
+ % manual page 11        
+\begin{keytop}%
+	\@@line{\hfill \Huge\texttt{\textcolor{upforestgreen}{Respuestas 
+		Trabajo Práctico N$^\circ$~\fbox{\textsc{8}}}} \hfill}
+	\bigskip
+\end{keytop}%
+\makeatother
+\examname{\textcolor{upforestgreen}{\underline{\textbf{Interés y Capital.}}}}
+
+\SectionPrefix{\textcolor{upforestgreen}{\textbf{Sección \arabic{sectionindex}}.} \space}
+\Fullpages
+\ContinuousNumbering
+\DefineAnswerWrapper{}{}
+\NumberOfVersions{1}
+\class{{\textcolor{upforestgreen}{\large\textbf{E.P.E.S. Nro 51 ``J. G. A.''}}\\[0.5cm]
+		\textcolor{upforestgreen}{{\large \textbf{Gestión y Cálculo Financiero}}}}}
+
+\begin{document}
+    %------------------------------------                  shortanswer                   -------------------------------------%
+    \begin{shortanswer}[title={Leemos el material de consulta y realizamos las actividades propuestas.}, rearrange=no]
+    	\begin{question}
+    		Calcular el monto a retirar luego de:	
+    		\begin{enumerate}
+    			\item depositar en un plazo fijo $\$1000$ a una tasa mensual del $12\%$ luego de $1$ año.
+    			\item capitalizar en una caja de ahorro $\$1000$ a una tasa mensual del $12\%$ luego de $1$ año.
+    		\end{enumerate}
+    	    \begin{answer}
+    	    	\textbf{Respuesta:}
+    	    	\begin{enumerate}
+    	    		%% ===================================================================================================== %%
+    	    		%% ========================= RESPUESTA AL EJERCICIO 1 - ÍTEM A) - INTERÉS SIMPLE    ==================== %%
+    	    		%% ===================================================================================================== %%
+    	    		\item depositar en un plazo fijo $\$1000$ a una tasa mensual del $12\%$ luego de $1$ año.
+    	    		
+    	    		\textbf{Datos:}
+    	    		\begin{itemize}
+    	    			\item $C_{0}=\$1000$
+    	    			\item $r=12\%=\displaystyle{\frac{12}{100}}$
+    	    			\item $n=12$ porque es una tasa mensual durante un año.
+    	    		\end{itemize}
+    	    		
+    	    		\begin{align*}
+    	    		    I&=C_{0}\cdot r\cdot n\\
+    	    		    I&=\$1000\cdot \frac{12}{100}\cdot 12=\$1440\\
+    	    		    M&=C_{0}+I\\
+    	    		    M&=\$1000+\$1440=\$2440
+    	    		\end{align*}
+    	    		
+    	    		El monto a retirar en plazo fijo a una tasa mensual de $12\%$ luego de un año es $\$2440$.
+    	    		%% ===================================================================================================== %%
+    	    		%% ========================= RESPUESTA AL EJERCICIO 1 - ÍTEM B) - INTERÉS COMPUESTO ==================== %%
+    	    		%% ===================================================================================================== %%
+    	    		\item capitalizar en una caja de ahorro $\$1000$ a una tasa mensual del $12\%$ luego de $1$ año.
+    	    		
+    	    		\textbf{Datos:}
+    	    		
+    	    		\begin{itemize}
+    	    			\item $C_{0}=\$1000$
+    	    			\item $r=12\%=\displaystyle{\frac{12}{100}}$
+    	    			\item $n=12$ porque es una tasa mensual durante un año.
+    	    			\item $I=C_0\cdot r$
+    	    		\end{itemize}
+    	    		
+    	    		\begin{align*}
+    	    		    &\mbox{En el primer mes: }     &&&                   I&=1000\cdot\frac{12}{100}=120  
+    	    		    \\
+    	    		    &                              &&&               C_{1}&=C_{0}+I=1000+120=1120         
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el segundo mes: }    &&&                   I&=1120\cdot \frac{12}{100}=134,4 
+    	    		    \\
+    	    		    &                              &&&               C_{2}&=C_{1}+I = 1120 +134,4= 1254,4      
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el tercer mes: }     &&&                   I&=1254,4\cdot \frac{12}{100}=150,53
+    	    		    \\
+    	    		    &                              &&&               C_{3}&=C_{2}+I = 1254,4 + 150,53=1404,93
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el cuarto mes: }     &&&                   I&= 1404,93 \cdot \frac{12}{100}=168,59
+    	    		    \\
+    	    		    &                              &&&               C_{4}&=C_{3}+I = 1404,93 + 168,59=1573,52
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el Quinto mes: }     &&&                   I&= 1573,52 \cdot \frac{12}{100}=188,82
+    	    		    \\
+    	    		    &                              &&&               C_{5}&=C_{4}+I = 1573,52 + 188,82=1762,34
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el sexto mes: }      &&&                   I&= 1762,34 \cdot \frac{12}{100} = 211,48
+    	    		    \\
+    	    		    &                              &&&               C_{6}&=C_{5}+I = 1762,34 +  211,48  = 1973,82
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el septimo mes: }    &&&                   I&=  1973,82\cdot \frac{12}{100} = 236,85
+    	    		    \\
+    	    		    &                              &&&               C_{7}&=C_{6}+I = 1973,82 +  236,85  = 2210,67
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el octavo mes: }     &&&                   I&=  2210,67\cdot \frac{12}{100} = 265,28
+    	    		    \\
+    	    		    &                              &&&               C_{8}&=C_{7}+I = 2210,67 + 265,28 = 2475,95
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el noveno mes: }     &&&                   I&=2475,95\cdot \frac{12}{100} = 297,11
+    	    		    \\
+    	    		    &                              &&&               C_{9}&=C_{8}+I = 2475,95 + 297,11  = 2773,06
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el décimo mes: }     &&&                   I&=2773,06\cdot \frac{12}{100} = 332,77 
+    	    		    \\
+    	    		    &                              &&&              C_{10}&=C_{9}+I = 2773,06 + 332,77 = 3105,83
+    	    		    \\[0.2cm]
+    	    		    &\mbox{En el onceavo mes: }    &&&                   I&=3105,83\cdot \frac{12}{100} = 372,70
+    	    		    \\
+    	    		    &                              &&&              C_{11}&=C_{10}+I = 3105,83 + 372,70  = 3478,53
+    	    		    \\[0.2cm]
+    	    		    &\mbox{Al año: }               &&&                   I&=3478,53\cdot \frac{12}{100} = 417,42
+    	    		    \\
+    	    		    &                              &&&              C_{12}&=C_{11}+I = 3478,53 + 417,42  = 3895,95 
+    	    		\end{align*}
+    	    		
+    	    		\textbf{Para evitar tantas ecuaciones, existe una ecuación de la cual podemos hacer uso y resume estos cálculos:}
+    	    		
+    	    		\begin{align}
+    	    		    &\mbox{Ecuación de Interés Compuesto: }    &&&\textcolor{red}{C_{n}} &\textcolor{red}{= C_{0}\left( 1+r\right)^{n}}
+    	    		\end{align}
+    	    		
+    	    		\begin{align}
+    	    		    C_{n} &= \$1000\left( 1+\frac{12}{100} \right)^{12}\\
+    	    		    C_{n} &= \$1000\left( 1+0,12 \right)^{12}\\
+    	    		    C_{n} &= \$1000\left( 1,12 \right)^{12}= 3895,97 
+    	    		\end{align}
+    	    		
+    	    		El monto a retirar de nuestra caja de ahorro a un interés de 12 porciento mensual luego de un año es de 3895,97 pesos.
+    	    		
+    	    	\end{enumerate}
+    	    \end{answer}
+    	\end{question}
+        
+        \begin{question}
+        	¿Cuál fue el capital inicial invertido luego de:	
+        	\begin{enumerate}
+        		\item retirar al cabo de $5$ meses a una tasa mensual del $3\%$ un monto de $\$1159,2741$?.
+        		\item capitalizar durante $5$ meses a una tasa mensual del $3\%$ para obtener un monto de $\$1159,2741$?.
+        	\end{enumerate}
+        	\begin{answer}
+        		\textbf{Respuesta:}
+        		\begin{enumerate}
+        			%% ===================================================================================================== %%
+        			%% =========================   RESPUESTA AL EJERCICIO 2 - ÍTEM A) - INTERÉS SIMPLE  ==================== %%
+        			%% ===================================================================================================== %%
+        			\item retirar al cabo de $5$ meses a una tasa mensual del $3\%$ un monto de $\$1159,2741$?.
+        			    
+        			    \textbf{Datos:}
+        			    
+        			    \begin{itemize}
+        			    	\item $C_{0}=?$,
+        			    	\item $r=3\%$,
+        			    	\item $n=5$ porque es una tasa mensual durante $5$ meses.
+        			    	\item $C_{n}=M=\$1159,2741$,
+        			    \end{itemize}
+        		    
+        		         \begin{align*}
+        		            C_n                               &= C_0+I                         \\
+        		            C_n                               &= C_0+C_0\cdot r\cdot n         \\
+        		            C_n                               &= C_0\left( 1+ r\cdot n\right)  \\
+        		         	\frac{C_n}{(1+r\cdot n)}          &= C_0                           \\
+        		            \frac{1159,2741}{(1+0,03\cdot 5)} &= C_0                           \\
+        		            1008,06                           &= C_0
+        		         \end{align*}
+        		    
+        		    El monoto inicial.....
+        		    
+        			%% ===================================================================================================== %%
+        			%% ========================= RESPUESTA AL EJERCICIO 2 - ÍTEM B) - INTERÉS COMPUESTO ==================== %%
+        			%% ===================================================================================================== %%
+        			\item capitalizar durante $5$ meses a una tasa mensual del $3\%$ para obtener un monto de $\$1159,2741$?.
+        			
+        			    \textbf{Datos:}
+        			    
+        			    \begin{itemize}
+        			    	\item $C_{0}=?$,
+        			    	\item $r=3\%$,
+        			    	\item $n=5$ porque es una tasa mensual durante $5$ meses.
+        			    	\item $C_{n}=M=\$1159,2741$,
+        			    \end{itemize}
+        			    
+        			    \begin{align*}
+        			                           \textcolor{red}{ C_{n}} &\textcolor{red}{= C_{0}\left( 1+r\right)^{n}}
+        			        \\[0.2cm]
+        			        \$1159,2741                                &=C_{0}\left( 1+\frac{3}{100}\right)^{5}
+        			        \\[0.2cm]  
+        			        \$1159,2741                                &=C_{0}\left( 1+0,03\right)^{5}
+        			        \\[0.2cm]
+        			        \$1159,2741                                &=C_{0}\left( 1,03\right)^{5}
+        			        \\[0.2cm]
+        			        \frac{\$1159,2741}{\left( 1,03\right)^{5}} &=C_{0}\\
+        			        C_{0}=\$1000
+        			    \end{align*}
+        		El montp inicial ... es...
+        		\end{enumerate}
+        	\end{answer}
+        \end{question}
+        
+        \begin{question}
+        	Si se genera $\$410$ de intereses al aplicarse una tasa mensual a $\$4000$ durante $2$ meses:	
+        	\begin{enumerate}
+        		\item ¿Cuál era la tasa a interés simple?.
+        		\item ¿Cuál era la tasa a interés compuesto?.
+        	\end{enumerate}
+        	\begin{answer}
+        		\textbf{Respuesta:}
+        		\begin{enumerate}
+        			%% ========================= RESPUESTA AL EJERCICIO 3 - ÍTEM A) - INTERÉS SIMPLE ==================== %%
+        			\item  ¿Cuál era la tasa a interés simple?.
+        			
+        			\textbf{Datos:}
+        			\begin{itemize}
+        				\item $C_{0}=\$4000$
+        				\item $r=?$
+        				\item $n=2$ porque es una tasa mensual durante $2$ meses.
+        				\item $I=\$410$
+        			\end{itemize}
+        			
+        			\begin{align*}
+        			    I&=C_{0}\cdot r\cdot n\\
+        			    \$410&=\$4000\cdot \frac{i}{100}\cdot 2\\
+        			    \$410&=\$80\cdot i\\
+        			    \frac{\$410}{\$80}&= i\\
+        			    5,125&= i
+        			\end{align*}
+        			Entonces tenemos $5,125\%$ es el interés mensual.
+        			
+        			%% ========================= RESPUESTA AL EJERCICIO 3 - ÍTEM B) - INTERÉS COMPUESTO ==================== %%
+        			\item ¿Cuál era la tasa a interés compuesto?.
+        			
+        			\textbf{Datos:}
+        			\begin{itemize}
+        				\item $C_{0}=\$4000$
+        				\item $r=?$
+        				\item $n=2$ porque es una tasa mensual durante $2$ meses.
+        				\item $I=\$420$
+        			\end{itemize}
+        		
+        			\begin{align*}
+        			    C_{n}                                           & = C_{0}+I=\$4000 + \$410=\$4410         \\[0.2cm]
+        			    C_{n}                                           & = C_{0}\left( 1+r\right)^{n}            \\[0.2cm]
+        			    \$4410                                          & = \$4000\left( 1+r\right)^{2}           \\[0.2cm]
+        			    \sqrt{\left( \frac{\$4410}{\$4000}\right) } - 1 & = r                     \\[0.2cm]
+        			                                                             0,05& = r 
+        			\end{align*}
+        			
+        			El interés es del $5\%$
+        		\end{enumerate}
+        	\end{answer}
+        \end{question}
+        
+        \begin{question}
+        	Para obtener un capital final $\$55833$ a partir de $\$38000$ con una tasa del $9\%$ mensual:	
+        	\begin{enumerate}
+        		\item ¿Durante cuánto tiempo deben capitalizarse?.
+        		\item ¿Durante cuánto tiempo alcanza el plazo fijo?.
+        	\end{enumerate}
+        	\begin{answer}
+        		\textbf{Respuesta:}
+        		\begin{enumerate}
+        			\item ¿Durante cuánto tiempo deben capitalizarse?.
+        			
+        			\textbf{Datos:}
+        			
+        			\begin{itemize}
+        				\item $C_{0}=\$38000$
+        				\item $r=9\%$
+        				\item $n=?$ porque no se durante cuanto tiempo debo capitalizar.
+        				\item $C_{n}=\$55833$
+        			\end{itemize}
+        			
+        			\begin{align*}
+        				M                                          &=C_{0}(1+r)^{n}                        \\
+        				55833                                      &=38000\left(1+\frac{9}{100}\right)^{n} \\
+        				55833:38000                                &=\left(1+0,09\right)^{n}               \\
+        				\frac{55833}{38000}                        &=\left(1+0,09\right)^{n}               \\
+        				\frac{55833}{38000}                        &=\left(1,09\right)^{n}                 \\
+        				\log_{1,09}\left(\frac{55833}{38000}\right)&=n
+        			\end{align*}
+        		Debe capitalizarse....(Completar esta respuesta)
+        			
+        			\item ¿Durante cuánto tiempo alcanza el plazo fijo?.
+        			
+        			\begin{align*}
+        			             M  &=C_{0}\cdot r\cdot n                \\
+        			         55833  &=38000\cdot \frac{9}{100}\cdot n\\
+        			         55833  &=3420\cdot n\\
+        			    55833:3420  & n\\
+        			            16,3&=n
+        			\end{align*}
+        			Podemos decir que serán 17 meses a plazo fijo.
+        		\end{enumerate}
+        	\end{answer}
+        \end{question}
+    \end{shortanswer}
+    %---------------------------------------------------------------------------------------------------------------------------------------------------------------%
+    \begin{endmatter}
+    	\vspace{.2cm}
+    	\centerline{\LARGE \textcolor{upforestgreen}{\textbf{Material de consulta: Interés Y Capital Financiero}}}
+    	\vspace{.2cm}
+    	\textbf{Introducción}
+    	
+    	Cada vez que tomamos una decisión económica estamos usando herramientas de la matemática aunque, muchas veces, nos cueste darnos cuenta. Muchas personas toman buenas decisiones, basadas en una gran experiencia, que incluye éxitos y fracasos. La matemática pone a nuestra disposición técnicas y métodos para resolver todo tipo de problemas y en particular los económicos. Su estudio nos provee un camino más corto para aprender a tomar las mejores decisiones y saber justificarlas.
+    	
+    	\textbf{Interés Y Capital Financiero}
+    	
+    	Cuando se dispone de una cantidad de dinero (Capital– \textit{C}) se puede destinar a gastarlo, satisfaciendo una necesidad, ó invertirlo para recuperarlo en un futuro más ó menos próximo.
+    	
+    	Por ello se define al Interés (\textit{I}) como la operación comercial de ceder un capital monetario, por un cierto plazo de tiempo (\textit{n}), con la obligación de que sea devuelto al cabo de ese tiempo, pagando, además, un ``alquiler''. O sea que el interés es la diferencia neta entre lo que devuelve y lo que se presta.
+    	
+    	Dicho alquiler depende de tres variables: la cantidad de capital invertido, el tiempo que dura la operación y la tasa (porcentaje que expresa el precio del dinero respecto de un capital) acordada para la operación.
+    	
+    	En principio trabajaremos con un modelo matemático, la ley financiera de capitalización, la cual a partir de un capital disponible en un determinado momento lo evaluaremos para un momento futuro.
+    	\begin{tcolorbox}[colback=red!10!white, colframe=tealgreen, title=\textbf{Los principales conceptos a trabajar serán son los siguientes:}]
+    		\begin{itemize}
+    			\item \textbf{Capital Inicial}: $C_{0}$, cantidad de dinero invertida susceptible de sufrir una variación cuantitativa.
+    			\item \textbf{Tasa de Interés}: es el interés producido por $\$100$ en una unidad de tiempo determinada, representado por un porcentaje, $i$, que produce la variación en la unidad de tiempo. Se suele usar en las fórmulas al rédito, $r$, que es la tasa de interés expresada de manera decimal.
+    			\item \textbf{Período}: $n$, cantidad de tiempo por el cual se coloca el capital inicial.
+    			\item \textbf{Monto}: $M$, ó $C_{n}$, cantidad final monetaria, ó capital final luego de un tiempo $n$, que se obtiene al finalizar el periodo en que se generan los intereses.
+    			\begin{equation}
+    			    M = C_{0} + I = C_{n}
+    			\end{equation}
+    		\end{itemize}
+    	\end{tcolorbox}
+    	\vspace{.2cm}
+    	
+    	Las operaciones financieras que trabajaremos se clasifican según la Ley Financiera que opera generando intereses a:
+    	
+    	\begin{itemize}
+    		\item Interés Simple: todos los intereses son calculados sobre el capital inicial.
+    		\item Interés Compuesto: los intereses generados se acumulan al capital inicial generando así otros intereses.
+    	\end{itemize}
+    	
+    	\vspace{.2cm}
+    	\begin{tcolorbox}[opteqC]
+    		\begin{exa}
+    		 Luis le prestó $\$800$ a Julia a devolver al cabo de un año con una tasa de interés del $5\%$ trimestral. ¿Cuál será el interés generado en ese tiempo? ¿Cuánto dinero le devolverá Julia a Luis?
+    		\end{exa}
+        \end{tcolorbox}
+        Si:
+        \begin{align}
+        	I&=C_{0}\cdot r\cdot n\\
+        	I&=800\cdot \frac{5}{100}\cdot 4=160\\
+        	M&=C_{0}+I\\
+        	M&=800+160=960
+        \end{align}
+        O sea que los intereses generado en $4$ trimestres (1 año), con una tasa de interés del $5\%$ por trimestre, aplicado a $\$800$ serán $\$160$. Y Julia deberá devolver al final de ese tiempo $\$960$
+        .
+        De acuerdo a la situación anterior encuentra una expresión que relacione el monto en función de los datos del problema:
+        \begin{center}
+        	\def\blank#1{$\underline{\mbox{\hphantom{#1}}}$}
+        	$M$=\blank{woodchuck}
+        \end{center}
+        \vspace{.2cm}
+        \begin{tcolorbox}[opteqC]
+        	\begin{exa}
+        		Luis le prestó $\$800$ a Julia a devolver al cabo de un año con una tasa de interés del $5\%$ trimestral. ¿Cuál será el interés generado en ese tiempo? ¿Cuánto dinero le devolverá Julia a Luis?
+        	\end{exa}
+        \end{tcolorbox}
+        \begin{align*}
+        	&\mbox{En el primer trimestre: }               &&&        I&=800\cdot\frac{5}{100}=40          \\
+        	&                                              &&&      C_1&=C_{0}+I=840                       \\
+        	&\mbox{En el segundo trimestre: }              &&&        I&=840\cdot \frac{5}{100}=42         \\
+        	&                                              &&&      C_2&=C_{1}+I=882                       \\
+        	&\mbox{En el tercer trimestre: }               &&&        I&=882\cdot \frac{5}{100}=44,10      \\
+        	&                                              &&&      C_3&=C_{2}+I=926,10                    \\
+        	&\mbox{Por último, en el cuarto trimestre: }   &&&        I&=926,10 \cdot \frac{5}{100}=46,305 \\
+        	&                                              &&&    C_{4}&=C_{3}+I=972,405                   \\
+        	&                                              &&&        M&=C_4=972.405=800+I                 \\ 
+        	&                                              &&&        I&=172,405
+        \end{align*}
+        O sea que los intereses generado en 4 trimestres (1 año), con una tasa de interés del $5\%$ por trimestre, aplicado a $\$800$ serán $\$172.405$. Y Julia deberá devolver al final de ese tiempo $\$972,405$.
+        
+        Por lo tanto la expresión que permite calcular el capital final (monto) en un interés compuesto de acuerdo a los datos del problema es:
+        
+        \begin{center}
+        	\def\blank#1{$\underline{\mbox{\hphantom{#1}}}$}
+        	$M$=\blank{woodchuck}
+        \end{center}
+    \end{endmatter}
+\end{document}
